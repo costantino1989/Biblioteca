@@ -25,12 +25,12 @@
 		<developerConnection>scm:git:ssh://bitbucket.org:byuhbll/Biblioteca.git</developerConnection>
 		<url>https://bitbucket.org/byuhbll/Biblioteca</url>
 	</scm>
-	
+
 	<properties>
 		<sonar.organization>costantino1989</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 	</properties>
-	
+
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/org.mockito/mockito-core -->
 		<dependency>
@@ -46,7 +46,12 @@
 			<version>4.12</version>
 			<!-- <scope>test</scope> -->
 		</dependency>
-
+		<dependency>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-surefire-plugin</artifactId>
+			<version>3.0.0-M7</version>
+			<type>maven-plugin</type>
+		</dependency>
 	</dependencies>
 
 	<profiles>
