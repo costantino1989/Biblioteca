@@ -25,10 +25,12 @@
 		<developerConnection>scm:git:ssh://bitbucket.org:byuhbll/Biblioteca.git</developerConnection>
 		<url>https://bitbucket.org/byuhbll/Biblioteca</url>
 	</scm>
+	
 	<properties>
 		<sonar.organization>costantino1989</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 	</properties>
+	
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/org.mockito/mockito-core -->
 		<dependency>
@@ -54,17 +56,6 @@
 
 	</dependencies>
 
-	<build>
-		<pluginManagement>
-			<plugins>
-				<plugin>
-					<groupId>org.sonarsource.scanner.maven</groupId>
-					<artifactId>sonar-maven-plugin</artifactId>
-					<version>3.4.0.905</version>
-				</plugin>
-			</plugins>
-		</pluginManagement>
-	</build>
 	<profiles>
 		<profile>
 			<id>coverage</id>
