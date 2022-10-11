@@ -79,37 +79,12 @@ public class Libro {
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
 		Libro other = (Libro) obj;
-		if (anno != other.anno)
+		if (anno != other.anno || (autori == null && other.autori != null) || !autori.equals(other.autori) || 
+				(editore == null && other.editore != null) || !editore.equals(other.editore) || (isbn == null && other.isbn != null)
+				|| !isbn.equals(other.isbn) || pagine != other.pagine || (titolo == null && other.titolo != null || !titolo.equals(other.titolo))) {
 			return false;
-		if (autori == null) {
-			if (other.autori != null)
-				return false;
-		} else if (!autori.equals(other.autori))
-			return false;
-		if (editore == null) {
-			if (other.editore != null)
-				return false;
-		} else if (!editore.equals(other.editore))
-			return false;
-		if (isbn == null) {
-			if (other.isbn != null)
-				return false;
-		} else if (!isbn.equals(other.isbn))
-			return false;
-		if (pagine != other.pagine)
-			return false;
-		if (titolo == null) {
-			if (other.titolo != null)
-				return false;
-		} else if (!titolo.equals(other.titolo))
-			return false;
+		}
 		return true;
 	}
 	

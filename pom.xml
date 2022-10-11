@@ -47,13 +47,13 @@
 			<!-- <scope>test</scope> -->
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/org.sonarsource.sonarqube/sonar-testing-harness -->
+		<!-- https://mvnrepository.com/artifact/org.sonarsource.sonarqube/sonar-testing-harness 
 		<dependency>
 			<groupId>org.sonarsource.sonarqube</groupId>
 			<artifactId>sonar-testing-harness</artifactId>
 			<version>9.3.0.51899</version>
 			<scope>test</scope>
-		</dependency>
+		</dependency> -->
 
 
 	</dependencies>
