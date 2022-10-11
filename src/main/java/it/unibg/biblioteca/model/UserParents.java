@@ -69,9 +69,10 @@ public abstract class UserParents {
 		
 		UserParents other = (UserParents) obj;
 		if (other==null || autenticato != other.autenticato || codice != other.codice || (cognome == null && other.cognome != null)
-				|| !cognome.equals(other.cognome) || (nome == null && other.nome != null) || !nome.equals(other.nome) || 
-				(password == null && other.password != null) || !password.equals(other.password) || 
-				(usarname == null && other.usarname != null) || !usarname.equals(other.usarname)){
+				|| (cognome!=null && !cognome.equals(other.cognome)) || (nome == null && other.nome != null) || 
+				(nome!=null && !nome.equals(other.nome)) || 
+				(password == null && other.password != null) || (password!=null && !password.equals(other.password)) || 
+				(usarname == null && other.usarname != null) || (usarname!=null &&!usarname.equals(other.usarname))){
 			return false;
 		}
 
