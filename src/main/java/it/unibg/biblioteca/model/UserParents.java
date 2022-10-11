@@ -68,9 +68,7 @@ public abstract class UserParents {
 	public boolean equals(Object obj) {
 		
 		UserParents other = (UserParents) obj;
-		if (other==null || autenticato != other.autenticato || codice != other.codice || (cognome == null && other.cognome != null)
-				|| (cognome!=null && !cognome.equals(other.cognome)) || (nome == null && other.nome != null) || 
-				(nome!=null && !nome.equals(other.nome)) || 
+		if (other==null || codice != other.codice || (cognome == null && other.cognome != null) ||
 				(password == null && other.password != null) || (password!=null && !password.equals(other.password)) || 
 				(usarname == null && other.usarname != null) || (usarname!=null &&!usarname.equals(other.usarname))){
 			return false;
