@@ -8,7 +8,7 @@ public abstract class UserParents {
 	private String password;
 	private boolean autenticato;
 	
-	public UserParents(String nome, String cognome, String password, String usarname) {
+	protected UserParents(String nome, String cognome, String password, String usarname) {
 		super();
 		this.codice = -1;
 		this.nome = nome;
@@ -17,7 +17,7 @@ public abstract class UserParents {
 		this.password = password;
 		this.usarname = usarname;
 	}
-	public UserParents(String nome, String cognome, int codice, String password, String usarname) {
+	protected UserParents(String nome, String cognome, int codice, String password, String usarname) {
 		super();
 		this.codice = codice;
 		this.nome = nome;
