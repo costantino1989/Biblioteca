@@ -80,7 +80,7 @@ public class Libro {
 	@Override
 	public boolean equals(Object obj) {
 		Libro other = (Libro) obj;
-		if (anno != other.anno || (autori == null && other.autori != null) || !autori.equals(other.autori) || 
+		if (other==null || anno != other.anno || (autori == null && other.autori != null) || !autori.equals(other.autori) || 
 				(editore == null && other.editore != null) || !editore.equals(other.editore) || (isbn == null && other.isbn != null)
 				|| !isbn.equals(other.isbn) || pagine != other.pagine || (titolo == null && other.titolo != null || !titolo.equals(other.titolo))) {
 			return false;
