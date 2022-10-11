@@ -66,37 +66,15 @@ public abstract class UserParents {
 	
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
+		
 		UserParents other = (UserParents) obj;
-		if (autenticato != other.autenticato)
+		if (other==null || autenticato != other.autenticato || codice != other.codice || (cognome == null && other.cognome != null)
+				|| !cognome.equals(other.cognome) || (nome == null && other.nome != null) || !nome.equals(other.nome) || 
+				(password == null && other.password != null) || !password.equals(other.password) || 
+				(usarname == null && other.usarname != null) || !usarname.equals(other.usarname)){
 			return false;
-		if (codice != other.codice)
-			return false;
-		if (cognome == null) {
-			if (other.cognome != null)
-				return false;
-		} else if (!cognome.equals(other.cognome))
-			return false;
-		if (nome == null) {
-			if (other.nome != null)
-				return false;
-		} else if (!nome.equals(other.nome))
-			return false;
-		if (password == null) {
-			if (other.password != null)
-				return false;
-		} else if (!password.equals(other.password))
-			return false;
-		if (usarname == null) {
-			if (other.usarname != null)
-				return false;
-		} else if (!usarname.equals(other.usarname))
-			return false;
+		}
+
 		return true;
 	}
 	@Override
