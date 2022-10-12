@@ -71,6 +71,9 @@ public class Gestore extends UserParents{
 			if((elencoUtenti.cercaUtenteCodice(u.getCodice())!=null || elencoUtenti.cercaUtenteNomeCogn(u.getNome(), u.getCognome())!=null) &&
 					ric.getListaUtenti().isEmpty()) {
 				if(elencoRichieste.cancellaRichiesta(ric.getCodice())) {
+					ric.setQuantita(ric.getQuantita()-utenteLibro.getQuantita());
+					u.setQuantita(0);
+					this.gestioneCatalogo.aumentaDisponibilita(libro.getIsbn(), utenteLibro.getQuantita());
 					return true;
 				}
 				ric.getListaUtenti().add(utenteLibro);

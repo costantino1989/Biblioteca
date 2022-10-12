@@ -1,5 +1,6 @@
 package it.unibg.biblioteca.test.gestore;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
@@ -47,12 +48,13 @@ public class GestoreTL {
 	public void gestoreEliminaUtenteTL() {
 		getMapUtenti();
 		when(ricDao.insert(any())).thenReturn(1);
-		when(utenteDao.getAll()).thenReturn(arr);
+		when(utenteDao.getAll()).thenReturn(new HashMap<Integer,Utente>());
 		when(ricDao.delete(1)).thenReturn(true);
 		when(utenteDao.delete(1)).thenReturn(true);
 		when(ricDao.delete(2)).thenReturn(true);
+		when(utenteDao.delete(200)).thenReturn(true);
 		when(ricDao.update(any())).thenReturn(true);
-		
+		when(utenteDao.delete(100)).thenReturn(true);
 		ElencoUtenti elencoUtenti = new ElencoUtenti(utenteDao);
 		elencoUtenti = spy(elencoUtenti);
 		GestioneCatalogo gestioneCatalogo = new GestioneCatalogo(libroDao);
@@ -64,10 +66,20 @@ public class GestoreTL {
 		g.getGestioneCatalogo().aumentaDisponibilita("isbn1", 5);
 		g.getGestioneCatalogo().aggiungiLibro(libro2);
 		g.getGestioneCatalogo().aumentaDisponibilita("isbn2", 5);
-		Utente u = new Utente("Costantino","Esposito",1,"Costa89","12345678");
+		Utente u3 = new Utente("A","B",200,"Costa89","12345678");
+		when(utenteDao.insert(any())).thenReturn(200);
+		g.getElencoUtenti().creaUtenti(u3);
+		assertTrue(g.gestoreElimintaUtente(u3));
+		Utente u = new Utente("Pluto","Pippo",100,"Costa89","12345678");
+		Utente u2 = new Utente("Costantino","Esposito",1,"Costa89","12345678");
+		assertFalse(g.gestoreElimintaUtente(u));
+		when(utenteDao.insert(any())).thenReturn(100);
 		assertTrue(g.gestoreCreaRichiesta(1, u, libro));
 		when(ricDao.insert(any())).thenReturn(2);
-		assertTrue(g.gestoreCreaRichiesta(1, u, libro2));
+		when(utenteDao.insert(any())).thenReturn(1);
+		assertTrue(g.gestoreCreaRichiesta(1, u2, libro2));
+		assertTrue(g.gestoreCreaRichiesta(1, u2, libro));
+		assertTrue(g.gestoreElimintaUtente(u2));
 		assertTrue(g.gestoreElimintaUtente(u));
 	}
 	

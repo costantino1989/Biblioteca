@@ -33,3 +33,4 @@ Il Gestore, al momento della cancellazione di un Utente dal sistema, verifica se
 1. Utenti e Gestori vengono identificati attraverso un codice che se non settato è di default a -1, ma al momento della loro creazione nel database tale valore dovrà essere >=0
 2. ogni libro ha un isbn, valore univoco alfanumerico, non può essere nullo
 3. ogni attributo di Utente, Gestore, Libro, RichiestAcquisto, UtenteLibro e tutte le classi Dao non devono essere nulli.
+4. per ogni richiesta si verifica la quantità disponibile a catalogo, se dopo una richiesta le quantità a catalogo del libro sono 0, il libro va rimosso dal catalogo
